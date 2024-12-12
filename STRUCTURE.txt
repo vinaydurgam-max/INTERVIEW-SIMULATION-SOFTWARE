@@ -1,0 +1,33 @@
+interview-simulation/
+├── backend/                     # Server-side logic and API
+│   ├── server.js                # Main Node.js server file
+│   ├── package.json             # Backend dependencies
+│   └── config/                  # Configuration files
+│       └── db.js                # MySQL database connection logic
+├── frontend/                    # Client-side application
+│   ├── public/                  # Static files (HTML, CSS, JS)
+│   │   ├── index.html           # Entry point HTML file
+│   │   └── favicon.ico          # Favicon
+│   ├── src/                     # React components
+│   │   ├── App.js               # Main React component
+│   │   ├── index.js             # Entry point for React app
+│   │   ├── components/          # Reusable components
+│   │   │   ├── QuestionForm.js  # Component for adding questions
+│   │   │   ├── ResponseForm.js  # Component for candidate responses
+│   │   │   └── ScoreCard.js     # Component to display scores
+│   └── package.json             # Frontend dependencies
+├── nlp-service/                 # Natural Language Processing service
+│   ├── app.py                   # Flask application for NLP logic
+│   ├── requirements.txt         # Python dependencies
+│   └── models/                  # Pre-trained NLP models
+│       └── transformer_model/   # Directory for model files
+├── database/                    # Database scripts and backups
+│   ├── create_tables.sql        # SQL script to create database schema
+│   └── seed_data.sql            # Script to populate initial data
+├── tests/                       # Test cases for each module
+│   ├── backend.test.js          # Test cases for backend API
+│   ├── frontend.test.js         # Test cases for React components
+│   └── nlp-service.test.py      # Test cases for Flask NLP service
+├── README.md                    # Project documentation
+├── LICENSE                      # Project license
+└── .gitignore                   # Files and directories to ignore in Git

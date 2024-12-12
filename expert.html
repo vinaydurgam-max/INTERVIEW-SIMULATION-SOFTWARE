@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expert Corner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding-top: 20px;
+        }
+
+        .candidate-list, .review, .selected-candidates, .bluetooth-section {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        .candidate-list ul, .selected-candidates ul, .bluetooth-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .candidate-list li, .selected-candidates li, .bluetooth-section li {
+            padding: 5px 0;
+            border-bottom: 1px solid #fff;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #dc3545;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #c82333;
+        }
+
+        .grade-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 15px 0;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .grade-section input {
+            width: 50px;
+            padding: 5px;
+            margin: 5px;
+        }
+
+        .grade-table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 10px;
+            background-color: #fff;
+            color: #333;
+        }
+
+        .grade-table th, .grade-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        .grade-table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .grade-table td input {
+            width: 50px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Expert Corner</h1>
+
+        <div class="candidate-list">
+            <h2>Candidate List</h2>
+            <ul>
+                <li>VINAY</li>
+                <li>SAI</li>
+                <li>ABHI</li>
+                <li>RAMU</li>
+            </ul>
+        </div>
+
+        <div class="review">
+            <h2>Review and Grade</h2>
+            <p>Provide your feedback and grades for the candidates.</p>
+            
+            <form id="gradeForm">
+                <table class="grade-table">
+                    <tr>
+                        <th>Candidate</th>
+                        <th>Attitude</th>
+                        <th>Behavior</th>
+                        <th>Verbal Skills</th>
+                        <th>Technical Skills</th>
+                    </tr>
+                    <tr>
+                        <td>VINAY</td>
+                        <td><input type="number" name="vinay_attitude" min="0" max="10"></td>
+                        <td><input type="number" name="vinay_behavior" min="0" max="10"></td>
+                        <td><input type="number" name="vinay_verbal" min="0" max="10"></td>
+                        <td><input type="number" name="vinay_technical" min="0" max="10"></td>
+                    </tr>
+                    <tr>
+                        <td>SAI</td>
+                        <td><input type="number" name="sai_attitude" min="0" max="10"></td>
+                        <td><input type="number" name="sai_behavior" min="0" max="10"></td>
+                        <td><input type="number" name="sai_verbal" min="0" max="10"></td>
+                        <td><input type="number" name="sai_technical" min="0" max="10"></td>
+                    </tr>
+                    <tr>
+                        <td>ABHI</td>
+                        <td><input type="number" name="abhi_attitude" min="0" max="10"></td>
+                        <td><input type="number" name="abhi_behavior" min="0" max="10"></td>
+                        <td><input type="number" name="abhi_verbal" min="0" max="10"></td>
+                        <td><input type="number" name="abhi_technical" min="0" max="10"></td>
+                    </tr>
+                    <tr>
+                        <td>RAMU</td>
+                        <td><input type="number" name="ramu_attitude" min="0" max="10"></td>
+                        <td><input type="number" name="ramu_behavior" min="0" max="10"></td>
+                        <td><input type="number" name="ramu_verbal" min="0" max="10"></td>
+                        <td><input type="number" name="ramu_technical" min="0" max="10"></td>
+                    </tr>
+                </table>
+
+                <button type="submit">Submit Grades</button>
+            </form>
+        </div>
+
+        <div class="selected-candidates">
+            <h2>Selected Candidates</h2>
+            <ul>
+                <li>ABHI</li>
+                <li>RAMU</li>
+            </ul>
+        </div>
+
+        <div class="bluetooth-section">
+            <h2>Bluetooth Device Scanner</h2>
+            <button id="scanBluetoothButton">Scan for Bluetooth Devices</button>
+            <ul id="deviceList"></ul>
+        </div>
+    </div>
+
+    <script>
+        // Handle form submission
+        document.getElementById("gradeForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            let grades = {};
+            for (let [key, value] of formData.entries()) {
+                grades[key] = value;
+            }
+
+            console.log("Grades Submitted: ", grades);
+            alert("Grades Submitted Successfully");
+        });
+
+        // Placeholder script for Bluetooth scanning (bluetooth.js can handle actual functionality)
+        document.getElementById("scanBluetoothButton").addEventListener("click", function() {
+            alert("Scanning for Bluetooth devices...");
+            // This is where the Bluetooth scanning logic would go
+        });
+    </script>
+</body>
+</html>

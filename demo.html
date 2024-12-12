@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Interview - Interview Simulation System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .navbar {
+            background-color: #007bff;
+            overflow: hidden;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .navbar a {
+            color: #fff;
+            padding: 14px 20px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .navbar a:hover {
+            background-color: #0056b3;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            color: #333;
+        }
+
+        #videoElement {
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            background-color: #000;
+            margin: 20px auto;
+            display: block;
+        }
+
+        .controls {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .controls button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .controls button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="candidate.html">Candidate Corner</a>
+        <a href="expert.html">Expert Corner</a>
+        <a href="about.html">About Site</a>
+        <a href="terms.html">Terms and Conditions</a>
+    </div>
+
+    <div class="container">
+        <h1>Demo Interview</h1>
+        <video id="videoElement" autoplay></video>
+        <div class="controls">
+            <button id="startButton">Start Interview</button>
+            <button id="endButton">End Interview</button>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2024 Interview Simulation System. All rights reserved.
+    </footer>
+
+    <script>
+        const videoElement = document.getElementById('videoElement');
+        const startButton = document.getElementById('startButton');
+        const endButton = document.getElementById('endButton');
+        let stream;
+
+        // Start the webcam
+        async function startWebcam() {
+            try {
+                stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                videoElement.srcObject = stream;
+            } catch (error) {
+                console.error('Error accessing webcam: ', error);
+            }
+        }
+
+        // Stop the webcam
+        function stopWebcam() {
+            if (stream) {
+                const tracks = stream.getTracks();
+                tracks.forEach(track => track.stop());
+                videoElement.srcObject = null;
+            }
+        }
+
+        startButton.addEventListener('click', startWebcam);
+        endButton.addEventListener('click', stopWebcam);
+    </script>
+</body>
+</html>
