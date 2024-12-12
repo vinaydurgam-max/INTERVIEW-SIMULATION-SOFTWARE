@@ -169,7 +169,7 @@ interview-simulation/
 
 ## **Contributors**
 
-- [Your Name](https://github.com/yourusername) - Developer
+- DURGAM VINAY KUMAR- Developer
   
 
 ## **License**
